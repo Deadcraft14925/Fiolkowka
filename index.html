@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DomkuPodDębem — Wynajem domku</title>
+  <title>Fiołkówka — Wynajem domku</title>
   <meta name="description" content="Przytulny domek na wynajem — idealny na weekendy i wakacje. Kontakt i rezerwacje." />
   <style>
     :root{
@@ -69,11 +69,32 @@
     .sub{ color:var(--muted); font-size:14px; margin:0 0 12px 0; }
     .tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;}
     .tag{ background:#eef7f5; color:var(--accent); padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px; }
-    .details{ margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:15px; }
-    .detail{ display:flex; gap:8px; align-items:center; }
+    .details{ margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:15px; flex-direction: column;}
+    .detail{ display:flex; gap:8px; align-items:center; margin-bottom: 0px;}
+    .detail:last-child {margin-bottom: 0;}
     .aside{ display:flex; flex-direction:column; gap:var(--gap); }
     .price{ font-size:20px; font-weight:700; color:var(--accent); }
     .small{ font-size:13px; color:var(--muted); }
+.header-with-logo {display: flex;  align-items: center;
+  gap: 12px;}
+
+.header-with-logo img {
+  width: 72px;       /* dopasuj wielkość logo */
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;    /* logo nie kurczy się */
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 520px) {
+  .header-with-logo img { width: 56px; height: 56px; }
+  .header-with-logo { gap: 10px; }
+}
     form .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
     label{ font-size:13px; color:#0f172a; font-weight:600; }
     input[type="text"], input[type="email"], input[type="date"], input[type="tel"], textarea, select{
@@ -123,51 +144,45 @@
 <body>
   <main class="wrap" role="main">
     <section class="card" aria-labelledby="title">
-      <div class="hero">
-        <div class="hero-visual" aria-hidden="true">
-          <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracja domku">
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#bdefe6"/>
-                <stop offset="1" stop-color="#e6fbf8"/>
-              </linearGradient>
-            </defs>
-            <rect width="200" height="140" rx="12" fill="url(#g1)"/>
-            <g transform="translate(30,35)" fill="#0f172a">
-              <rect x="10" y="30" width="100" height="60" rx="6" fill="#ffffff" opacity="0.95"/>
-              <polygon points="0,30 60,0 120,30" fill="#2b8a7a"/>
-              <rect x="72" y="48" width="22" height="24" rx="3" fill="#2b8a7a"/>
-              <rect x="30" y="48" width="22" height="24" rx="3" fill="#2b8a7a"/>
-            </g>
-          </svg>
-        </div>
-        <div class="hero-info">
-          <h1 id="title">DomkuPodDębem — przytulny domek nad jeziorem</h1>
-          <p class="sub">Spokój, natura i komfort — 2 sypialnie, kominek, duży taras.</p>
-          <div class="tags" aria-hidden="true">
-            <span class="tag">aneks kuchenny</span>
-            <span class="tag">max 5 osób</span>
-            <span class="tag">zwierzęta mile widziane</span>
-	    <span class="tag">samodzielne zameldowanie</span>
-          </div>
-          <div class="details" aria-hidden="true">
-            <div class="detail">📍 <strong>Lokacja:</strong>&nbsp;Wolin, woj. zachodniopomorskie</div>
-            <div class="detail">🔥 <strong>Ud.</strong>&nbsp;Kominek, grill, billard</div>
-            <div class="detail">🌊 <strong>Do jeziora:</strong>&nbsp;5 min samochodem</div>
-          </div>
-          <div class="features" aria-hidden="true">
-            <div class="feature">Wi-Fi</div>
- 	    <div class="feature">Klimatyzacja</div>
-            <div class="feature">Pełne AGD</div>
-            <div class="feature">Komfortowy dojazd</div>
-          </div>
-        </div>
-      </div>
+
+
+
+
+     <div class="hero">
+  <div class="hero-info">
+   <div class="header-with-logo" aria-label="Nagłówek i logo obiektu">
+  <img src="images\logo.png" alt="Logo" />
+  <div class="header-text">
+    <h1 id="title">Fiołkówka — przytulny domek na górce</h1>
+    <p class="sub">Spokój, natura i komfort.</p>
+  </div>
+</div>
+    <div class="tags" aria-hidden="true">
+      <span class="tag">aneks kuchenny</span>
+      <span class="tag">max 5 osób</span>
+      <span class="tag">zwierzęta mile widziane</span>
+      <span class="tag">samodzielne zameldowanie</span>
+    </div>
+    <div class="details" aria-hidden="true">
+      <div class="detail">📍 <strong>Adres:</strong>&nbsp;Zakliczyn, woj. małopolskie</div>
+      <div class="detail">🏰 <strong>Atrakcje</strong>&nbsp;Melsztyn, trasy rowerowe, łazienki mineralne</div>
+      <div class="detail">🔥 <strong>Udogodnienia</strong>&nbsp;Kominek, grill, billard</div>
+
+      <div class="detail">🌊 <strong>Do Zakliczyna:</strong>&nbsp;5 min samochodem</div>
+    </div>
+    <div class="features" aria-hidden="true">
+      <div class="feature">Wi-Fi</div>
+      <div class="feature">Klimatyzacja</div>
+      <div class="feature">Pełne AGD</div>
+      <div class="feature">Komfortowy dojazd</div>
+    </div>
+  </div>
+</div>
       <article style="margin-top:20px;">
         <h2 style="margin:0 0 8px 0;">Opis</h2>
         <p style="color:var(--muted); margin:0 0 12px 0;">
           Nasz domek to idealne miejsce na odpoczynek z rodziną lub przyjaciółmi. Jasne wnętrza, duży taras z widokiem
-          na otaczającą przyrodę, dobrze wyposażona kuchnia oraz miejsce do grillowania. Minimalny pobyt: 2 noce.
+          na las, dobrze wyposażona kuchnia oraz miejsce do grillowania. Minimalny pobyt: 2 noce.
         </p>
         <h3 style="margin:12px 0 8px 0;">Cennik (poglądowy)</h3>
         <ul style="color:var(--muted); margin:0 0 12px 20px;">
@@ -183,17 +198,19 @@
       <div style="margin-top:20px;">
         <h3 style="margin:0 0 8px 0;">Galeria poglądowa</h3>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px;">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80" 
+         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80" 
      alt="Elewacja domku z tarasem" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox(this.src, this.alt)">
-    <img src="images/dom.jpg" 
-     alt="Widok domku od strony ogrodu" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox(this.src, this.alt)">
 	<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=80" 
      alt="Widok domku od strony ogrodu" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox(this.src, this.alt)">
-				
-
         </div>
         <p class="small" style="margin-top:8px;">Zdjęcia poglądowe z Unsplash — nie przedstawiają faktycznego obiektu.</p>
       </div>
+	<section style="margin-top:40px;">
+  	<h2>Dojazd</h2>
+  	<div style="width:100%; height:500px; border-radius:10px; overflow:hidden;">
+   	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1838.655598890545!2d20.810768058498894!3d49.83145630811045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spl!2spl!4v1754848189718!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+	</section>
+
     </section>
     <aside class="aside">
       <div class="card" style="display:flex; flex-direction:column; gap:12px;">
@@ -206,7 +223,7 @@
           <div style="text-align:right;">
             <div class="small">Ocena</div>
             <div style="font-weight:800; font-size:20px;">0 ★</div>
-            <div class="small">(Brak)</div>
+            <div class="small">(0 opinie)</div>
           </div>
         </div>
         <!-- Formularz z Formspree -->
@@ -329,5 +346,3 @@
 </script>
 </body>
 </html>
-
-
