@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DomkuPodDębem — Wynajem domku</title>
+  <meta name="description" content="Przytulny domek na wynajem — idealny na weekendy i wakacje. Kontakt i rezerwacje." />
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --accent:#2b8a7a;
+      --muted:#6b7280;
+      --shadow: 0 6px 20px rgba(43,138,122,0.12);
+      --radius:12px;
+      --maxw:1100px;
+      --gap:20px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #f5fbfa 0%, var(--bg) 100%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      min-height:100vh;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:var(--gap);
+    }
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr; padding-bottom:32px}
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+    .hero{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .hero-visual{
+      flex:0 0 220px;
+      height:160px;
+      border-radius:10px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, #d8f0ea 0%, #e6fbf8 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .hero-visual svg{ width:100%; height:100%; object-fit:cover; display:block; }
+    .hero-info h1{ margin:0 0 6px 0; font-size:22px; letter-spacing:-0.2px; }
+    .sub{ color:var(--muted); font-size:14px; margin:0 0 12px 0; }
+    .tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;}
+    .tag{ background:#eef7f5; color:var(--accent); padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px; }
+    .details{ margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:15px; }
+    .detail{ display:flex; gap:8px; align-items:center; }
+    .aside{ display:flex; flex-direction:column; gap:var(--gap); }
+    .price{ font-size:20px; font-weight:700; color:var(--accent); }
+    .small{ font-size:13px; color:var(--muted); }
+    form .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+    label{ font-size:13px; color:#0f172a; font-weight:600; }
+    input[type="text"], input[type="email"], input[type="date"], input[type="tel"], textarea, select{
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid #e6e9ef;
+      background:#fcfdff;
+      font-size:14px;
+      outline:none;
+    }
+    input:focus, textarea:focus, select:focus{ border-color:var(--accent); box-shadow:0 6px 18px rgba(43,138,122,0.08); }
+    textarea{ min-height:100px; resize:vertical; padding-top:10px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--accent), #1f6f61);
+      color:white;
+      padding:10px 14px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(43,138,122,0.18);
+    }
+    .btn:active{ transform:translateY(1px) }
+    .contact{ display:flex; flex-direction:column; gap:8px; font-size:15px; }
+    .contact a{ color:var(--accent); text-decoration:none; font-weight:600; }
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:16px;
+    }
+    .feature{
+      background:#fbfffe;
+      border-radius:10px;
+      padding:10px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid #f0f4f3;
+    }
+    footer{ margin-top:18px; color:var(--muted); font-size:13px; text-align:center; }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <section class="card" aria-labelledby="title">
+      <div class="hero">
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracja domku">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#bdefe6"/>
+                <stop offset="1" stop-color="#e6fbf8"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="140" rx="12" fill="url(#g1)"/>
+            <g transform="translate(30,35)" fill="#0f172a">
+              <rect x="10" y="30" width="100" height="60" rx="6" fill="#ffffff" opacity="0.95"/>
+              <polygon points="0,30 60,0 120,30" fill="#2b8a7a"/>
+              <rect x="72" y="48" width="22" height="24" rx="3" fill="#2b8a7a"/>
+              <rect x="30" y="48" width="22" height="24" rx="3" fill="#2b8a7a"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-info">
+          <h1 id="title">DomkuPodDębem — przytulny domek nad jeziorem</h1>
+          <p class="sub">Spokój, natura i komfort — 2 sypialnie, kominek, duży taras.</p>
+          <div class="tags" aria-hidden="true">
+            <span class="tag">aneks kuchenny</span>
+            <span class="tag">max 5 osób</span>
+            <span class="tag">zwierzęta mile widziane</span>
+	    <span class="tag">samodzielne zameldowanie</span>
+          </div>
+          <div class="details" aria-hidden="true">
+            <div class="detail">📍 <strong>Lokacja:</strong>&nbsp;Wolin, woj. zachodniopomorskie</div>
+            <div class="detail">🔥 <strong>Ud.</strong>&nbsp;Kominek, grill, billard</div>
+            <div class="detail">🌊 <strong>Do jeziora:</strong>&nbsp;5 min samochodem</div>
+          </div>
+          <div class="features" aria-hidden="true">
+            <div class="feature">Wi-Fi</div>
+ 	    <div class="feature">Klimatyzacja</div>
+            <div class="feature">Pełne AGD</div>
+            <div class="feature">Komfortowy dojazd</div>
+          </div>
+        </div>
+      </div>
+      <article style="margin-top:20px;">
+        <h2 style="margin:0 0 8px 0;">Opis</h2>
+        <p style="color:var(--muted); margin:0 0 12px 0;">
+          Nasz domek to idealne miejsce na odpoczynek z rodziną lub przyjaciółmi. Jasne wnętrza, duży taras z widokiem
+          na otaczającą przyrodę, dobrze wyposażona kuchnia oraz miejsce do grillowania. Minimalny pobyt: 2 noce.
+        </p>
+        <h3 style="margin:12px 0 8px 0;">Cennik (poglądowy)</h3>
+        <ul style="color:var(--muted); margin:0 0 12px 20px;">
+          <li>Sezon niski: 320 zł / noc</li>
+          <li>Sezon wysoki: 480 zł / noc</li>
+          <li>Kaucja: 500 zł </li>
+        </ul>
+        <footer>
+          <small>Dodatkowe informacje po kontakcie</small>
+        </footer>
+      </article>
+      <!-- Galeria -->
+      <div style="margin-top:20px;">
+        <h3 style="margin:0 0 8px 0;">Galeria poglądowa</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px;">
+         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80" 
+     alt="Elewacja domku z tarasem" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox(this.src, this.alt)">
+	<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=80" 
+     alt="Widok domku od strony ogrodu" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox(this.src, this.alt)">
+
+        </div>
+        <p class="small" style="margin-top:8px;">Zdjęcia poglądowe z Unsplash — nie przedstawiają faktycznego obiektu.</p>
+      </div>
+    </section>
+    <aside class="aside">
+      <div class="card" style="display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div class="small">Cena od</div>
+            <div class="price">320 zł / noc</div>
+            <div class="small">Minimalny pobyt: 2 noce</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="small">Ocena</div>
+            <div style="font-weight:800; font-size:20px;">0 ★</div>
+            <div class="small">(Brak)</div>
+          </div>
+        </div>
+        <!-- Formularz z Formspree -->
+        <form 
+          action="https://formspree.io/f/mkgzkzbj" 
+          method="POST" 
+          style="display:flex; flex-direction:column; gap:12px;"
+        >
+          <div class="field">
+            <label for="name">Twoje imię</label>
+            <input id="name" name="name" type="text" required placeholder="Jan Kowalski" />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="_replyto" type="email" required placeholder="kontakt@przyklad.pl" />
+          </div>
+          <div class="field">
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel" placeholder="+48 600 000 000" />
+          </div>
+          <div style="display:flex; gap:8px;">
+            <div style="flex:1" class="field">
+              <label for="checkin">Przyjazd</label>
+              <input id="checkin" name="checkin" type="date" required />
+            </div>
+            <div style="flex:1" class="field">
+              <label for="checkout">Wyjazd</label>
+              <input id="checkout" name="checkout" type="date" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="guests">Liczba gości</label>
+            <select id="guests" name="guests">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Wiadomość (opcjonalnie)</label>
+            <textarea id="message" name="message" placeholder="Dodatkowe informacje, prośby..."></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="Zapytanie z DomkuPodDębem" />
+          <button class="btn" type="submit">Wyślij zapytanie</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 8px 0;">Kontakt (poglądowe)</h3>
+        <div class="contact" aria-label="Dane kontaktowe">
+          <div><strong>Właściciel:</strong> Anna Nowak</div>
+          <div>☎ <a href="tel:+48600000000">+48 600 000 000</a></div>
+          <div>✉ <a href="mailto:kontakt@domkupoddębem.pl">kontakt@domkupoddębem.pl</a></div>
+          <div>📍 <span class="small">Słoneczna 12, 72-500 Wolin</span></div>
+          <div style="margin-top:8px;" class="small">Godziny kontaktu: 9:00 — 20:00</div>
+        </div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h4 style="margin:0 0 8px 0;">Szybkie informacje</h4>
+        <p class="small" style="margin:0 0 12px 0;">
+          Zakwaterowanie od 15:00, wymeldowanie do 11:00. Zwierzęta po uprzednim uzgodnieniu.
+        </p>
+        <a class="btn" href="tel:+48600000000" style="text-decoration:none; display:inline-block;">Zadzwoń teraz</a>
+      </div>
+    </aside>
+  </main>
+<style>
+  /* Tło lightboxa */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  }
+  .lightbox-caption {
+    color: #fff;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 15px;
+  }
+</style>
+
+<!-- Kontener lightboxa -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div style="text-align:center;">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+  function openLightbox(src, alt) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    img.src = src;
+    img.alt = alt;
+    caption.textContent = alt;
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  // zamknięcie klawiszem Esc
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>
